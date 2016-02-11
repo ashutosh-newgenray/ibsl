@@ -1,8 +1,8 @@
 @extends('layouts.master')
-@section('title', 'Users')
+@section('title', 'Create Role')
 
 @section('content')
-    <h3>Edit User</h3>
+    <h3>Create New Role</h3>
     <hr>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
@@ -10,7 +10,7 @@
             <p class="bg-message bg-success">{{Session::get('message')}}</p>
             @endif
 
-            <form class="form-horizontal" action="{{route('admin::user.store')}}" method="POST">
+            <form class="form-horizontal" action="{{route('admin::role.store')}}" method="POST">
                   {{ csrf_field() }}
                   <div class="form-group">
                     <label for="inputName" class="col-sm-3 control-label">Name</label>
@@ -20,44 +20,16 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                    <label for="inputDisplayName" class="col-sm-3 control-label">Display Name</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{ old('email') }}">
-                      @if($errors->first('email'))<div class="error">{{ $errors->first('email') }}</div>@endif
+                      <input type="text" class="form-control" id="inputDisplayName" placeholder="display name" name="display_name" value="{{ old('inputDisplayName') }}">
+                      @if($errors->first('display_name'))<div class="error">{{ $errors->first('display_name') }}</div>@endif
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                    <label for="inputDescription" class="col-sm-3 control-label">Description</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputPassword" placeholder="Password" name="password">
-                      @if($errors->first('password'))<div class="error">{{ $errors->first('password') }}</div>@endif
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirm Password</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputConfirmPassword" placeholder="confirm password" name="password_confirmation">
-                      @if($errors->first('password_confirmation'))<div class="error">{{ $errors->first('password_confirmation') }}</div>@endif
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputRoles" class="col-sm-3 control-label">Roles</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" id="inputRoles" name="roles[]" multiple>
-                            @foreach($roles as $role)
-                               <option value="{{$role->id}}" @if(in_array($role->id,old('roles') ? array_values(old('roles')) : [])) selected @endif>{{$role->display_name}}</option>
-                            @endforeach
-                      </select>
-                      @if($errors->first('roles'))<div class="error">{{ $errors->first('roles') }}</div>@endif
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputStatus" class="col-sm-3 control-label">Status</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" id="inputStatus" name="is_active">
-                          <option value="1" @if(old('is_active')== 1) selected @endif>Active</option>
-                          <option value="0" @if(old('is_active') == 0) selected @endif>In Active</option>
-                      </select>
+                      <input type="text" class="form-control" id="inputDescription" placeholder="Description" name="description">
                     </div>
                   </div>
                   <div class="form-group">

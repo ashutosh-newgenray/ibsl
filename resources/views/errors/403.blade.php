@@ -42,7 +42,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">You are not Authroized.<br>
-                Please <a href="{{url('/login')}}">Login </a>
+                <a href="{{url('/')}}"> <i  class="fa fa-backward"></i> Home </a>
                 </div>
             </div>
         </div>

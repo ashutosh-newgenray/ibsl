@@ -1,8 +1,8 @@
 @extends('layouts.master')
-@section('title', 'Users')
+@section('title', 'Edit Role')
 
 @section('content')
-    <h3>Edit User</h3>
+    <h3>Edit Role</h3>
     <hr>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
@@ -10,39 +10,26 @@
             <p class="bg-message bg-success">{{Session::get('message')}}</p>
             @endif
 
-            <form class="form-horizontal" action="{{route('admin::user.update',['id'=> $user->id])}}" method="POST">
+            <form class="form-horizontal" action="{{route('admin::role.update',['id'=> $role->id])}}" method="POST">
                   {{ csrf_field() }}
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="name" name="name" value="{{$user->name}}">
+                    <label for="inputName" class="col-sm-3 control-label">Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputName" placeholder="name" name="name" value="{{$role->name}}">
                       @if($errors->first('name'))<div class="error">{{ $errors->first('name') }}</div>@endif
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" value="{{$user->email}}">
-                      @if($errors->first('email'))<div class="error">{{ $errors->first('email') }}</div>@endif
+                    <label for="inputDisplayName" class="col-sm-3 control-label">Display Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputDisplayName" placeholder="display name" name="display_name" value="{{$role->display_name}}">
+                      @if($errors->first('email'))<div class="error">{{ $errors->first('inputDisplayName') }}</div>@endif
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputRoles" class="col-sm-2 control-label">Roles</label>
-                    <div class="col-sm-10">
-                      <select class="form-control" id="inputRoles" name="roles[]" multiple>
-                            @foreach($roles as $role)
-                               <option value="{{$role->id}}" @if($user->hasRole($role->name)) selected @endif>{{$role->display_name}}</option>
-                            @endforeach
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputStatus" class="col-sm-2 control-label">Status</label>
-                    <div class="col-sm-10">
-                      <select class="form-control" id="inputStatus" name="is_active">
-                          <option value="1" @if($user->is_active == 1) selected @endif>Active</option>
-                          <option value="0" @if($user->is_active == 0) selected @endif>In Active</option>
-                      </select>
+                    <label for="inputDescription" class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputDescription" placeholder="Description" name="description" value="{{$role->description}}">
                     </div>
                   </div>
                   <div class="form-group">
