@@ -19,7 +19,7 @@
         <li class="dropdown" uib-dropdown >
           <a href="#" uib-dropdown-toggle   role="button">Courses<span class="caret"></span></a>
           <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button" >
-            <li><a href="#">Courses</a></li>
+            <li><a href="{{route('courses.index')}}">Courses</a></li>
             <li><a href="#">Register Learners</a></li>
             <li><a href="#">Course Certificates</a></li>
             <li><a href="#">Mark Unit Assessment</a></li>
@@ -32,7 +32,7 @@
         <li class="dropdown" uib-dropdown >
           <a href="#" uib-dropdown-toggle  role="button">Centres<span class="caret"></span></a>
           <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
-            <li><a href="#">Centres</a></li>
+            <li><a href="{{route('centres.index')}}">Centres</a></li>
             <li><a href="#">Regions</a></li>
           </ul>
         </li>

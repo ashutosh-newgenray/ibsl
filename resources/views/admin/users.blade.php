@@ -3,14 +3,13 @@
 
 @section('content')
     <h3>USER AND ROLES <a href="{{route('admin::user.create')}}" class="btn btn-info pull-right">Add User</a></h3>
-    <hr>
     <div class="row">
         <div class="col-sm-12">
-            <div ng-controller="UserCtrl">
+            <div ng-controller="UserCtrl" class="card">
                 @if(Session::get('message'))
                     <p class="bg-message bg-success">{{Session::get('message')}}</p>
                 @endif
-                <table id="usersTable" class="table table-striped display responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%">
+                <table id="usersTable" class="table table-striped responsive collapsed" cellspacing="0" width="100%">
                       <thead>
                           <tr>
                               <th>#Id</th>
@@ -33,7 +32,7 @@
                               <td>{{$user->created_at->format('d-M-Y')}}</td>
                               <td>
                                 @if(Auth::user()->can(['users-can-edit','users-can-create-new']))
-                                    <a href="{{route('admin::user.edit',['id'=>$user->id])}}">edit</a>
+                                    <a href="{{route('admin::user.edit',['id'=>$user->id])}}">Edit</a>
                                     <form class="inline-list-item" action="{{route('admin::user.destroy',['id'=>$user->id])}}" method="POST">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn-link error">Delete</button>

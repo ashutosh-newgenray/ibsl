@@ -14,5 +14,15 @@ $(document).ready(function() {
             { 'bSortable': false, 'aTargets': [2,3,4] }
         ]
     });
-
+    $('#centresTable').DataTable({
+        "bLengthChange": false,
+        "oLanguage": {
+            "sSearch": "Filter: "
+        }
+    });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 } );

@@ -7,10 +7,9 @@
         <h3 class="text-center menu-permission" ng-init="showSaveBtn = false">
             <button ng-show="showSaveBtn" type="submit" class="btn btn-danger ">Save Changes</button>
              Update Menu Permissions</h3>
-        <hr>
         <div class="row">
             <div class="col-sm-8">
-                <ul class="list-unstyled">
+                <ul class="list-unstyled card">
                     @foreach($menus as  $index => $menu)
                     <li>
                         <a ng-click="isCollapsed{{$menu->id}} = !isCollapsed{{$menu->id}}" ng-init="isCollapsed{{$menu->id}} = true"><i class="fa fa-caret-down" ng-class="{ 'fa-caret-down': isCollapsed{{$menu->id}}, 'fa-caret-right':!isCollapsed{{$menu->id}}  }"></i> {{$menu->display_name}}</a>

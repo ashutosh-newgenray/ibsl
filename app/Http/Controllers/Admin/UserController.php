@@ -67,8 +67,12 @@ class UserController extends Controller
         foreach($request->get('roles') as $role ){
             $user->attachRole($role);
         }
-
-        return redirect(route('admin:users'))->with('message', 'Successfully created the User.');
+        if($user->id){
+            return redirect(route('admin:users'))->with('message', 'Successfully created the User.');
+        }
+        else{
+            return redirect(route('admin:users'))->with('message', 'Error while creating a new user.');
+        }
     }
 
     /**

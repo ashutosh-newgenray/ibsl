@@ -1,14 +1,19 @@
-var myApp = angular.module('myApp',['ui.bootstrap','ui.grid']);
+var myApp = angular.module('myApp',['ui.bootstrap']);
 
-myApp.controller('mainCtrl', ['$scope', function($scope) {
+/*
+ * Main Controller
+ */
+myApp.controller('mainCtrl', ['$scope','$http', function($scope,$http) {
 
 }]);
 
-    /*
-    * Permission Controller
-    * @menu  Admin > update menu permission
-    * @file menu-permissions.blade.php
-    */
+
+
+/*
+* Permission Controller
+* @menu  Admin > update menu permission
+* @file menu-permissions.blade.php
+*/
 myApp.controller('UserCtrl', ['$scope','$http', function($scope,$http) {
     $scope.user = [];
     $scope.userToken = "";
@@ -18,7 +23,6 @@ myApp.controller('UserCtrl', ['$scope','$http', function($scope,$http) {
 
     $scope.updateUserPassword = function(url,id){
         $http.post(url,{
-                _token : $scope.userToken,
                 id : id,
                 password : $scope.user[id].password
         }).then(function(res){
@@ -32,3 +36,4 @@ myApp.controller('UserCtrl', ['$scope','$http', function($scope,$http) {
             });
     }
 }]);
+

@@ -36,6 +36,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/logout', 'Auth\AuthController@logout');
 
     /*
+     * Api Routes
+     */
+    Route::group(['namespace' => 'Api','prefix' => 'api'],function() {
+
+    });
+
+    /*
      * Admin Routes
      */
 
@@ -128,4 +135,33 @@ Route::group(['middleware' => ['web']], function () {
 
     });
 
+    /*
+     * @Resource : Course
+     */
+    Route::group(['namespace' => 'Course'],function() {
+
+        Route::get('/courses', [
+            'middleware' => ['permission:courses-can-view|courses-can-edit|courses-can-create-new'],
+            'as' => 'courses.index', 'uses' => 'CourseController@index']);
+
+    });
+
+    /*
+     * @Resource : Centre
+     */
+    Route::group(['namespace' => 'Centre'],function() {
+
+        Route::get('/centres', [
+            'middleware' => ['permission:centres-can-view|centres-can-edit|centres-can-create-new'],
+            'as' => 'centres.index', 'uses' => 'CentreController@index']);
+
+        Route::get('/centre/create', [
+            'middleware' => ['permission:centres-can-create-new'],
+            'as' => 'centre.create', 'uses' => 'CentreController@create']);
+
+        Route::post('/centre/store', [
+            'middleware' => ['permission:centres-can-create-new'],
+            'as' => 'centre.store', 'uses' => 'CentreController@store']);
+
+    });
 });

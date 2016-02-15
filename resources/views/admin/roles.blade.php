@@ -7,14 +7,13 @@
         <a href="{{route('admin::role.create')}}" class="btn btn-info pull-right">Add Role</a>
     @endif
    </h3>
-    <hr>
     <div class="row">
         <div class="col-sm-12">
-            <div ng-controller="UserCtrl">
+            <div ng-controller="UserCtrl" class="card">
                 @if(Session::get('message'))
                     <p class="bg-message bg-success">{{Session::get('message')}}</p>
                 @endif
-                <table id="rolesTable" class="table table-striped display responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%">
+                <table id="rolesTable" class="table table-striped responsive collapsed" cellspacing="0" width="100%">
                       <thead>
                           <tr>
                               <th>#Id</th>

@@ -22,10 +22,8 @@ class PermissionsTableSeeder extends Seeder
                 ['name' => $menu->name.'-no-access', 'display_name' => $menu->display_name.' No Access'],
                 ['name' => $menu->name.'-can-view', 'display_name' => $menu->display_name.' Can View'],
                 ['name' => $menu->name.'-can-edit', 'display_name' => $menu->display_name.' Can Edit'],
-                ['name' => $menu->name.'-can-create-new', 'display_name' => $menu->display_name.' Can Create New'],
-
+                ['name' => $menu->name.'-can-create-new', 'display_name' => $menu->display_name.' Can Create New']
             ]);
         }
-
     }
 }

@@ -16,6 +16,7 @@ class MenusTableSeeder extends Seeder
          */
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('menus')->truncate();
+        DB::table('submenus')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         /*
          * Menu - Courses

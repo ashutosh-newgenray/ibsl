@@ -3,10 +3,9 @@
 
 @section('content')
     <h3>Change Password</h3>
-    <hr>
     <div class="row">
         <div class="col-sm-12">
-            <div ng-controller="UserCtrl">
+            <div ng-controller="UserCtrl" class="card">
                 <input type="hidden" name="_token" ng-model="userToken" value="<?php echo csrf_token(); ?>">
                 <p class="bg-message bg-error" ng-if="errors.length > 0">
                 <div ng-repeat="error in errors">
@@ -16,7 +15,7 @@
                 <p class="bg-message bg-success" ng-if="message">
                     @{{ message  }}
                 </p>
-                <table id="usersTable" class="table table-striped display responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%">
+                <table id="usersTable" class="table table-striped responsive collapsed" cellspacing="0" width="100%">
                       <thead>
                           <tr>
                               <th>#Id</th>

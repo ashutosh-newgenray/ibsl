@@ -15,6 +15,7 @@ class RolesTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('roles')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
         DB::table('roles')->insert([
             ['name' => 'admin','display_name' => 'Admin','description' => 'Super Admin','created_at' => \Carbon\Carbon::now()->toDateTimeString(),'updated_at' => \Carbon\Carbon::now()->toDateTimeString()],
             ['name' => 'registration','display_name' => 'Registration','description' => 'Registration','created_at' => \Carbon\Carbon::now()->toDateTimeString(),'updated_at' => \Carbon\Carbon::now()->toDateTimeString()],
